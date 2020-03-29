@@ -1,0 +1,32 @@
+{
+  "name": "ramodel-demo-todomvc",
+  "version": "1.0.0",
+  "description": "TodoMVC demo created with RaModel and µhtml",
+  "license": "MIT",
+  "author": "Vladislav Orlov <me@orlov-vo.ru>",
+  "homepage": "https://github.com/orlov-vo/ramodel-demo-todomvc#readme",
+  "repository": "github:orlov-vo/ramodel-demo-todomvc",
+  "bugs": {
+    "url": "https://github.com/orlov-vo/ramodel-demo-todomvc/issues",
+    "email": "me@orlov-vo.ru"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel index.html --open",
+    "build": "parcel build index.html",
+    "format": "prettier --write \"src/**/*.ts\""
+  },
+  "dependencies": {
+    "ramodel": "0.0.2",
+    "todomvc-app-css": "2.3.0",
+    "todomvc-common": "1.0.5",
+    "uhtml": "1.9.0"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.6.1",
+    "typescript": "^3.8.3"
+  }
+}
