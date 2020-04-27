@@ -23,7 +23,7 @@ function getRoute(pathname: string) {
   }
 }
 
-export const Controller = createModel(() => {
+export class Controller extends createModel(() => {
   const [focusedTodoId, setFocusedTodoId] = useState<number | null>(null);
   const [activeRoute, setActiveRoute] = useState<Values<typeof ROUTE>>(ROUTE.ALL);
 
@@ -45,4 +45,4 @@ export const Controller = createModel(() => {
     focusedTodoId,
     setFocusedTodoId,
   };
-});
+}) {}

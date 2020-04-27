@@ -2,7 +2,7 @@ import { createModel } from 'ramodel';
 import { useRef, useReducer, useMemo, useCallback } from 'ramodel/hooks';
 import { Todo } from '../types';
 
-export const TodoManager = createModel(() => {
+export class TodoManager extends createModel(() => {
   const idCounter = useRef(0);
 
   const [items, dispatch] = useReducer((state: Todo[], { type, payload }: any): Todo[] => {
@@ -56,4 +56,4 @@ export const TodoManager = createModel(() => {
     toggleAll,
     clearCompleted,
   };
-});
+}) {}

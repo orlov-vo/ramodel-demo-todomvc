@@ -1,4 +1,5 @@
 import { watch, makeLense, combineLenses } from 'ramodel';
+import { connectWorker } from 'ramodel/remote';
 import { render, html } from 'uhtml';
 import { header } from './views/header';
 import { main } from './views/main';
@@ -8,7 +9,12 @@ import { TodoManager } from './models/TodoManager';
 import { ROUTE } from './constants';
 import { Todo, Values } from './types';
 
-const manager = new TodoManager({});
+const worker = new Worker('./worker.ts', { type: 'module' });
+
+async function init() {
+  const remoteWorld = connectWorker(worker);
+
+  const manager = await remoteWorld.get<TodoManager>('manager');
   const controller = new Controller({});
 
   const appElement = document.querySelector('.todoapp');
@@ -67,3 +73,6 @@ const manager = new TodoManager({});
       );
     },
   );
+}
+
+init();
