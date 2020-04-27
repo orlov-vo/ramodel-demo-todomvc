@@ -1,6 +1,6 @@
-import { html } from "uhtml";
-import { ENTER_KEY, ESCAPE_KEY } from "../constants";
-import { Todo } from "../types";
+import { html } from 'uhtml';
+import { ENTER_KEY, ESCAPE_KEY } from '../constants';
+import { Todo } from '../types';
 
 type TodoProps = {
   updateTodo: (todoId: number, title: string) => void;
@@ -10,10 +10,7 @@ type TodoProps = {
   setFocusedTodoId: (todoId: number | null) => void;
 };
 
-function renderTodo(
-  todo: Todo,
-  { focusedTodoId, updateTodo, removeTodo, toggleTodo, setFocusedTodoId }: TodoProps
-) {
+function renderTodo(todo: Todo, { focusedTodoId, updateTodo, removeTodo, toggleTodo, setFocusedTodoId }: TodoProps) {
   const onKeyDown = (event: KeyboardEvent) => {
     console.log(event.keyCode);
     if (event.keyCode === ESCAPE_KEY) {
@@ -31,28 +28,16 @@ function renderTodo(
     }
   };
 
-  const className = [todo.completed && "completed", todo.id === focusedTodoId && "editing"]
-    .filter(Boolean)
-    .join(" ");
+  const className = [todo.completed && 'completed', todo.id === focusedTodoId && 'editing'].filter(Boolean).join(' ');
 
   return html`
     <li class=${className}>
       <div class="view">
-        <input
-          class="toggle"
-          type="checkbox"
-          .checked=${todo.completed}
-          onchange=${() => toggleTodo(todo.id)}
-        />
+        <input class="toggle" type="checkbox" .checked=${todo.completed} onchange=${() => toggleTodo(todo.id)} />
         <label ondblclick=${() => setFocusedTodoId(todo.id)}>${todo.title}</label>
         <button class="destroy" onclick=${() => removeTodo(todo.id)}></button>
       </div>
-      <input
-        class="edit"
-        .value=${todo.title}
-        onblur=${() => setFocusedTodoId(null)}
-        onkeydown=${onKeyDown}
-      />
+      <input class="edit" .value=${todo.title} onblur=${() => setFocusedTodoId(null)} onkeydown=${onKeyDown} />
     </li>
   `;
 }

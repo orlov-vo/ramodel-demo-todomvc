@@ -1,10 +1,10 @@
-import { createModel } from "ramodel";
-import { useState, useEffect } from "ramodel/hooks";
-import { ROUTE } from "../constants";
-import { Values } from "../types";
+import { createModel } from 'ramodel';
+import { useState, useEffect } from 'ramodel/hooks';
+import { ROUTE } from '../constants';
+import { Values } from '../types';
 
 const parsePathname = (() => {
-  const a = document.createElement("a");
+  const a = document.createElement('a');
 
   return (href: string) => {
     a.href = href;
@@ -14,9 +14,9 @@ const parsePathname = (() => {
 
 function getRoute(pathname: string) {
   switch (pathname) {
-    case "/active":
+    case '/active':
       return ROUTE.ACTIVE;
-    case "/completed":
+    case '/completed':
       return ROUTE.COMPLETED;
     default:
       return ROUTE.ALL;
@@ -33,16 +33,16 @@ export const Controller = createModel(() => {
       setActiveRoute(getRoute(parsePathname(link)));
     };
 
-    window.addEventListener("hashchange", handler, false);
+    window.addEventListener('hashchange', handler, false);
 
     return () => {
-      window.removeEventListener("hashchange", handler, false);
+      window.removeEventListener('hashchange', handler, false);
     };
   }, []);
 
   return {
     activeRoute,
     focusedTodoId,
-    setFocusedTodoId
+    setFocusedTodoId,
   };
 });
