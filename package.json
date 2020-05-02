@@ -13,11 +13,16 @@
   "files": [
     "dist/**/*"
   ],
-  "main": "index.html",
+  "main": "dist/index.html",
   "scripts": {
-    "start": "parcel serve --cache-dir .cache index.html",
-    "build": "parcel build index.html",
+    "start": "parcel serve --cache-dir .cache ./src/index.html",
+    "build": "parcel build --cache-dir .cache ./src/index.html",
     "format": "prettier --write \"src/**/*.ts\""
+  },
+  "targets": {
+    "main": {
+      "distDir": "./dist"
+    }
   },
   "browserslist": [
     "last 2 Chrome versions"
@@ -29,7 +34,7 @@
     "uhtml": "1.9.0"
   },
   "devDependencies": {
-    "parcel": "^2.0.0-alpha.3.2",
+    "parcel": "^2.0.0-nightly.248",
     "typescript": "^3.8.3"
   }
 }

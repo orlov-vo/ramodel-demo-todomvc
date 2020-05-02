@@ -1,3 +1,4 @@
+import 'todomvc-common/base.js';
 import { watch, makeLense, combineLenses } from 'ramodel';
 import { connectWorker } from 'ramodel/remote';
 import { render, html } from 'uhtml';
@@ -9,7 +10,7 @@ import { TodoManager } from './models/TodoManager';
 import { ROUTE } from './constants';
 import { Todo, Values } from './types';
 
-const worker = new Worker('./worker.ts', { type: 'module' });
+const worker = new Worker('./worker.ts');
 
 async function init() {
   const remoteWorld = connectWorker(worker);
