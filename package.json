@@ -16,7 +16,7 @@
   "main": "dist/index.html",
   "scripts": {
     "start": "parcel serve --cache-dir .cache ./src/index.html",
-    "build": "parcel build --cache-dir .cache ./src/index.html",
+    "build": "parcel build --cache-dir .cache --no-scope-hoist ./src/index.html",
     "format": "prettier --write \"src/**/*.ts\""
   },
   "targets": {
