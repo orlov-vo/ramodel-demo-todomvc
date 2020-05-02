@@ -1,4 +1,3 @@
-import 'todomvc-common/base.js';
 import { watch, makeLense, combineLenses } from 'ramodel';
 import { connectWorker } from 'ramodel/remote';
 import { render, html } from 'uhtml';
