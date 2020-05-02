@@ -5075,10 +5075,10 @@ querystring@0.2.0:
   resolved "https://registry.yarnpkg.com/querystring/-/querystring-0.2.0.tgz#b209849203bb25df820da756e747005878521620"
   integrity sha1-sgmEkgO7Jd+CDadW50cAWHhSFiA=
 
-ramodel@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/ramodel/-/ramodel-0.1.0.tgz#869da94c2dfa051073317affb0c3a671dd26e1e2"
-  integrity sha512-CVznQLsrJd/Pu0QojSLN1yRT/MaoO1bwzSuDHGQVdAlLzgCIdIZOcqhKloumnpVTCzIAEVbjB0hy33KmIWd2Hw==
+ramodel@0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/ramodel/-/ramodel-0.1.1.tgz#62b4d2229f9dad09a5b642682c02e7d9fafe7460"
+  integrity sha512-Hp3kmpBJU/xH8rNoacAxSQCXXrCT+ouUJPdS+ApeaFQSCTAxtd4jUPQbCCJ5oRdVbK+wQ+ZjkDoZPtBvGliM/w==
   dependencies:
     idx "^2.5.6"
     memoize-one "^5.1.1"

@@ -23,7 +23,7 @@
     "last 2 Chrome versions"
   ],
   "dependencies": {
-    "ramodel": "^0.1.0",
+    "ramodel": "0.1.1",
     "todomvc-app-css": "2.3.0",
     "todomvc-common": "1.0.5",
     "uhtml": "1.9.0"
