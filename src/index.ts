@@ -1,4 +1,4 @@
-import { watch, makeLense, combineLenses } from 'ramodel';
+import { watch, createLens, combineLenses } from 'ramodel';
 import { connectWorker } from 'ramodel/remote';
 import { render, html } from 'uhtml';
 import { header } from './views/header';
@@ -19,12 +19,12 @@ async function init() {
 
   const appElement = document.querySelector('.todoapp');
 
-  const getVisibleTodosLense = combineLenses(
+  const getVisibleTodosLens = combineLenses(
     [
-      makeLense(controller, _ => _.activeRoute),
-      makeLense(manager, _ => _.items),
-      makeLense(manager, _ => _.activeItems),
-      makeLense(manager, _ => _.completedItems),
+      createLens(controller, _ => _.activeRoute),
+      createLens(manager, _ => _.items),
+      createLens(manager, _ => _.activeItems),
+      createLens(manager, _ => _.completedItems),
     ],
     (activeRoute: Values<typeof ROUTE>, all: Todo[], active: Todo[], completed: Todo[]) => {
       switch (activeRoute) {
@@ -40,11 +40,11 @@ async function init() {
 
   watch(
     [
-      getVisibleTodosLense,
-      makeLense(manager, _ => _.items.length > 0),
-      makeLense(manager, _ => _.activeItems.length),
-      makeLense(controller, _ => _.activeRoute),
-      makeLense(controller, _ => _.focusedTodoId),
+      getVisibleTodosLens,
+      createLens(manager, _ => _.items.length > 0),
+      createLens(manager, _ => _.activeItems.length),
+      createLens(controller, _ => _.activeRoute),
+      createLens(controller, _ => _.focusedTodoId),
     ],
     (visibleTodos, isListVisible, leftItems, activeRoute, focusedTodoId) => {
       if (!appElement) {
