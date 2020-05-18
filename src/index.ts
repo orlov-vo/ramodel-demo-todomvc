@@ -1,5 +1,6 @@
 import { watch, createLens, combineLenses } from 'ramodel';
-import { connectWorker } from 'ramodel/remote';
+import { createLogger } from 'ramodel/devtools';
+import { connect } from 'ramodel/remote/worker';
 import { render, html } from 'uhtml';
 import { header } from './views/header';
 import { main } from './views/main';
@@ -12,10 +13,19 @@ import { Todo, Values } from './types';
 const worker = new Worker('./worker.ts');
 
 async function init() {
-  const remoteWorld = connectWorker(worker);
+  const remoteWorld = connect(worker);
 
   const manager = await remoteWorld.get<TodoManager>('manager');
   const controller = new Controller({});
+
+  const root = { manager, controller };
+
+  console.log('Thank you for your interest to RaModel!');
+  console.log('You can access to the state by "window.root" variable.');
+  // @ts-ignore
+  window.root = root;
+
+  createLogger(root, { name: 'root', diff: true });
 
   const appElement = document.querySelector('.todoapp');
 
