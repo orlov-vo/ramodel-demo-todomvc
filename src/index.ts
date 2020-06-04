@@ -1,5 +1,5 @@
 import { watch, createLens, combineLenses } from 'ramodel';
-import { createLogger } from 'ramodel/devtools';
+import { createLogger, connectReduxDevtools } from 'ramodel/devtools';
 import { connect } from 'ramodel/remote/worker';
 import { render, html } from 'uhtml';
 import { header } from './views/header';
@@ -26,6 +26,7 @@ async function init() {
   window.root = root;
 
   createLogger(root, { name: 'root', diff: true });
+  connectReduxDevtools(root, { name: 'root' });
 
   const appElement = document.querySelector('.todoapp');
 
