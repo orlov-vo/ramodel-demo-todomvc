@@ -5149,10 +5149,10 @@ querystring@0.2.0:
   resolved "https://registry.yarnpkg.com/querystring/-/querystring-0.2.0.tgz#b209849203bb25df820da756e747005878521620"
   integrity sha1-sgmEkgO7Jd+CDadW50cAWHhSFiA=
 
-ramodel@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/ramodel/-/ramodel-0.2.0.tgz#fc297f5439f3ff34230b905ec867ed6123928d6b"
-  integrity sha512-XLE6k4SUiotH/pfBMPhVFztHSwlXP7glOFep3qRGiP5Mg3QS5Iy/J4IYiKaKGkqUKlJywF38YME0gcAXIs5i1w==
+ramodel@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/ramodel/-/ramodel-0.2.1.tgz#e871abd8a60afd0f48b8c7eaec6a53863d86d8a7"
+  integrity sha512-R66y2S/vCZjqqBr/NzsRvujJAbEXUs5zeIkNFuRYMBcnq2lTf5fS5X/vINLn/E37vlFF2zyNyeHqbfiB5sIwdQ==
   dependencies:
     deep-diff "^1.0.2"
     idx "^2.5.6"
